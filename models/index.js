@@ -1,5 +1,5 @@
 const User = require('./User');
-const Task = require('./Task');
+const Task = require('./task'); // fixed capital T
 
 User.hasMany(Task, {
   foreignKey: 'user_id',
