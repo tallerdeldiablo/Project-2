@@ -31,9 +31,10 @@ router.get("/manager", withAuth, async (req, res) => {
     });
 
     //serializing
-    const employeeTasks = tasksWithUser.map((task) =>
-      task.get({ plain: true })
-    );
+    const employeeTasks = tasksWithUser.map((employee) => ({
+      ...employee.get({ plain: true }),
+      isCurrentUser: employee.id === req.session.user_id,
+    }));
     //res.status(200).json(tasksWithUser);
     res.render("manager", {
       user,

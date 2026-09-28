@@ -132,6 +132,9 @@
         <div class="employee-names">
           <h5>{{name}}</h5>
           <h6><i>{{role}}</i></h6>
+          {{#unless isCurrentUser}}
+            <button type="button" class="btn-flat delete-user" data-user-id="{{id}}" data-user-name="{{name}}">Delete user</button>
+          {{/unless}}
         </div>
         <li class="collection-item avatar">
           <i class="material-icons circle md-36">assignment</i>
@@ -172,6 +175,7 @@
 
 <script src="../js/createTask.js"></script>
 <script src="../js/registerEmployee.js"></script>
+<script src="../js/deleteUser.js"></script>
 <script src="./js/chart-manager.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() { var elems =
